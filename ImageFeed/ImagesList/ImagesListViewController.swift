@@ -53,8 +53,8 @@ extension ImagesListViewController: UITableViewDataSource {
         let photoName = photosName[indexPath.row]
         guard let photo = UIImage(named: photoName) else { return }
         guard let like = ((indexPath.row % 2 == 0)
-                          ? UIImage(named: "NoLike")
-                          : UIImage(named: "Like")) else { return }
+                          ? UIImage(named: "Like")
+                          : UIImage(named: "NoLike")) else { return }
         cell.cellImage.image = photo
         cell.cellImage.layer.cornerRadius = 16
         cell.cellImage.layer.masksToBounds = true
