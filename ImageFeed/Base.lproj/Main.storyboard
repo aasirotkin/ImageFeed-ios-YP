@@ -9,6 +9,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SingleImage-->
+        <scene sceneID="gbN-Pn-dWu">
+            <objects>
+                <viewController title="SingleImage" id="Kkg-yA-PYj" customClass="SingleImageViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YsY-aP-eq4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="UBa-2F-1rl">
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ekv-KR-OpJ"/>
+                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="UBa-2F-1rl" secondAttribute="bottom" id="QRd-Mn-Atb"/>
+                            <constraint firstItem="UBa-2F-1rl" firstAttribute="top" secondItem="YsY-aP-eq4" secondAttribute="topMargin" id="YJC-YT-qw2"/>
+                            <constraint firstItem="UBa-2F-1rl" firstAttribute="leading" secondItem="YsY-aP-eq4" secondAttribute="leadingMargin" id="d21-IN-ZFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBa-2F-1rl" secondAttribute="trailing" id="kMj-H2-oWG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TKt-sF-k0f"/>
+                    <connections>
+                        <outlet property="imageView" destination="UBa-2F-1rl" id="N4T-lP-OCn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9k9-Vh-94V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919" y="-22"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="t5K-M6-TUJ">
             <objects>
@@ -82,6 +112,7 @@
                                             <outlet property="cellImage" destination="xWI-5u-9Yc" id="84P-Q5-0KE"/>
                                             <outlet property="dateLabel" destination="vfM-0h-uK1" id="zMN-Ek-hUL"/>
                                             <outlet property="likeButton" destination="VeA-Iq-8t5" id="ejM-Yr-NJp"/>
+                                            <segue destination="Kkg-yA-PYj" kind="show" id="Hvm-Of-NMr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
