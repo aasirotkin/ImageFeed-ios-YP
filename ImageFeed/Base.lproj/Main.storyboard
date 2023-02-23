@@ -17,9 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="UBa-2F-1rl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWx-sG-Lq4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="UBa-2F-1rl">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="132"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UBa-2F-1rl" firstAttribute="leading" secondItem="oWx-sG-Lq4" secondAttribute="leading" id="LsM-di-mR5"/>
+                                    <constraint firstAttribute="bottom" secondItem="UBa-2F-1rl" secondAttribute="bottom" id="R7V-Ee-rn6"/>
+                                    <constraint firstItem="UBa-2F-1rl" firstAttribute="top" secondItem="oWx-sG-Lq4" secondAttribute="top" id="jiI-LR-BzB"/>
+                                    <constraint firstAttribute="trailing" secondItem="UBa-2F-1rl" secondAttribute="trailing" id="ldy-6Q-5Op"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="zom-mr-iqB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="xdz-Lo-PiV"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PN-7c-eaf" userLabel="Back Arrow Button">
                                 <rect key="frame" x="0.0" y="68" width="44" height="44"/>
                                 <constraints>
@@ -41,12 +54,12 @@
                         <viewLayoutGuide key="safeArea" id="Ekv-KR-OpJ"/>
                         <color key="backgroundColor" name="YP Black (iOS)"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="UBa-2F-1rl" secondAttribute="bottom" id="QRd-Mn-Atb"/>
+                            <constraint firstItem="oWx-sG-Lq4" firstAttribute="top" secondItem="YsY-aP-eq4" secondAttribute="top" id="HHs-az-UJW"/>
+                            <constraint firstAttribute="trailing" secondItem="oWx-sG-Lq4" secondAttribute="trailing" id="J8Q-zQ-57W"/>
                             <constraint firstItem="2PN-7c-eaf" firstAttribute="top" secondItem="YsY-aP-eq4" secondAttribute="top" constant="68" id="VXO-jQ-acG"/>
-                            <constraint firstItem="UBa-2F-1rl" firstAttribute="top" secondItem="YsY-aP-eq4" secondAttribute="top" id="YJC-YT-qw2"/>
+                            <constraint firstItem="oWx-sG-Lq4" firstAttribute="leading" secondItem="YsY-aP-eq4" secondAttribute="leading" id="ZtH-jS-9sJ"/>
                             <constraint firstItem="2bx-yp-NSh" firstAttribute="centerX" secondItem="YsY-aP-eq4" secondAttribute="centerX" id="bAR-X5-R6c"/>
-                            <constraint firstItem="UBa-2F-1rl" firstAttribute="leading" secondItem="YsY-aP-eq4" secondAttribute="leading" id="d21-IN-ZFz"/>
-                            <constraint firstAttribute="trailing" secondItem="UBa-2F-1rl" secondAttribute="trailing" id="kMj-H2-oWG"/>
+                            <constraint firstAttribute="bottom" secondItem="oWx-sG-Lq4" secondAttribute="bottom" constant="34" id="jQp-8H-FbU"/>
                             <constraint firstItem="Ekv-KR-OpJ" firstAttribute="bottom" secondItem="2bx-yp-NSh" secondAttribute="bottom" constant="38" id="oBN-Qr-FXu"/>
                             <constraint firstItem="2PN-7c-eaf" firstAttribute="leading" secondItem="YsY-aP-eq4" secondAttribute="leading" id="tJk-hq-had"/>
                         </constraints>
@@ -54,6 +67,7 @@
                     <navigationItem key="navigationItem" id="TKt-sF-k0f"/>
                     <connections>
                         <outlet property="imageView" destination="UBa-2F-1rl" id="N4T-lP-OCn"/>
+                        <outlet property="scrollView" destination="oWx-sG-Lq4" id="O3F-vN-pmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9k9-Vh-94V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -94,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="YP Black (iOS)"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="183" id="XY5-yZ-v9f" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="183" id="XY5-yZ-v9f" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="183"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XY5-yZ-v9f" id="LUn-1q-L37">
