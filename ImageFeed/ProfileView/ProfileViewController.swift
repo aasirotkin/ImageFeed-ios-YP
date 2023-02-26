@@ -7,21 +7,7 @@
 
 import UIKit
 
-private class Constraints {
-
-    static let leading: CGFloat = 16
-    static let trailing: CGFloat = 16
-    static let profileImageTop: CGFloat = 76
-    static let profileImageWidth: CGFloat = 70
-    static let profileImageHeight: CGFloat = 70
-    static let quitButtonTrailing: CGFloat = -26
-    static let nameLabelTop: CGFloat = 8
-    static let nickNameTop: CGFloat = 8
-    static let aboutTextViewTop: CGFloat = 8
-
-}
-
-class ProfileViewController : UIViewController {
+final class ProfileViewController : UIViewController {
 
     private var profileImageView: UIImageView?
     private var quitButton: UIButton?
@@ -40,44 +26,53 @@ class ProfileViewController : UIViewController {
     }
 
     private func initProfileImage() {
-        guard let image = UIImage(named: "DefaultProfileIcon") else { return }
+        guard let image = UIImage(
+            named: ProfileConstants.ProfileImage.imageName) else { return }
         profileImageView = UIImageView(image: image)
         guard let profileImageView = profileImageView else { return }
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileImageView)
         profileImageView.leadingAnchor.constraint(
             equalTo: view.leadingAnchor,
-            constant: Constraints.leading)
+            constant: ProfileConstraints.Common.leading)
                 .isActive = true
         profileImageView.topAnchor.constraint(
             equalTo: view.topAnchor,
-            constant: Constraints.profileImageTop)
+            constant: ProfileConstraints.ProfileImage.top)
                 .isActive = true
         profileImageView.widthAnchor.constraint(
-            equalToConstant: Constraints.profileImageWidth)
+            equalToConstant: ProfileConstraints.ProfileImage.width)
                 .isActive = true
         profileImageView.heightAnchor.constraint(
-            equalToConstant: Constraints.profileImageHeight)
+            equalToConstant: ProfileConstraints.ProfileImage.height)
                 .isActive = true
     }
 
     private func initQuitButton() {
-        guard let image = UIImage(named: "QuitIcon") else { return }
+        guard let image = UIImage(
+            named: ProfileConstants.QuitButton.imageName) else { return }
         guard let profileImageView = profileImageView else { return }
         quitButton = UIButton.systemButton(
             with: image,
             target: self,
             action: nil)
         guard let quitButton = quitButton else { return }
-        quitButton.tintColor = UIColor(named: "YP Red (iOS)")
+        quitButton.tintColor = UIColor(
+            named: ProfileConstants.QuitButton.textColorName)
         quitButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(quitButton)
         quitButton.trailingAnchor.constraint(
             equalTo: view.trailingAnchor,
-            constant: Constraints.quitButtonTrailing)
+            constant: ProfileConstraints.QuitButton.trailing)
                 .isActive = true
         quitButton.centerYAnchor.constraint(
             equalTo: profileImageView.centerYAnchor)
+                .isActive = true
+        quitButton.widthAnchor.constraint(
+            equalToConstant: ProfileConstraints.QuitButton.width)
+                .isActive = true
+        quitButton.heightAnchor.constraint(
+            equalToConstant: ProfileConstraints.QuitButton.height)
                 .isActive = true
     }
 
@@ -87,16 +82,23 @@ class ProfileViewController : UIViewController {
         guard let nameLabel = nameLabel else { return }
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameLabel)
-        nameLabel.text = "User name"
-        nameLabel.font = UIFont.systemFont(ofSize: 23)
-        nameLabel.textColor = UIColor(named: "YP White (iOS)")
+        nameLabel.text = ProfileConstants.NameLabel.defaultName
+        nameLabel.font = UIFont.systemFont(
+            ofSize: ProfileConstants.NameLabel.fontSize,
+            weight: ProfileConstants.NameLabel.fontWeight)
+        nameLabel.textColor = UIColor(
+            named: ProfileConstants.NameLabel.textColorName)
         nameLabel.leadingAnchor.constraint(
             equalTo: view.leadingAnchor,
-            constant: Constraints.leading)
+            constant: ProfileConstraints.Common.leading)
+                .isActive = true
+        nameLabel.trailingAnchor.constraint(
+            equalTo: view.trailingAnchor,
+            constant: ProfileConstraints.Common.trailing)
                 .isActive = true
         nameLabel.topAnchor.constraint(
             equalTo: profileImageView.bottomAnchor,
-            constant: Constraints.nameLabelTop)
+            constant: ProfileConstraints.NameLabel.top)
                 .isActive = true
     }
 
@@ -106,16 +108,22 @@ class ProfileViewController : UIViewController {
         guard let nickNameLabel = nickNameLabel else { return }
         nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nickNameLabel)
-        nickNameLabel.text = "User nickname"
-        nickNameLabel.font = UIFont.systemFont(ofSize: 13)
-        nickNameLabel.textColor = UIColor(named: "YP White (iOS)")
+        nickNameLabel.text = ProfileConstants.NicknameLabel.defaultName
+        nickNameLabel.font = UIFont.systemFont(
+            ofSize: ProfileConstants.NicknameLabel.fontSize)
+        nickNameLabel.textColor = UIColor(
+            named: ProfileConstants.NicknameLabel.textColorName)
         nickNameLabel.leadingAnchor.constraint(
             equalTo: view.leadingAnchor,
-            constant: Constraints.leading)
+            constant: ProfileConstraints.Common.leading)
+                .isActive = true
+        nickNameLabel.trailingAnchor.constraint(
+            equalTo: view.trailingAnchor,
+            constant: ProfileConstraints.Common.trailing)
                 .isActive = true
         nickNameLabel.topAnchor.constraint(
             equalTo: nameLabel.bottomAnchor,
-            constant: Constraints.nameLabelTop)
+            constant: ProfileConstraints.NicknameLabel.top)
                 .isActive = true
     }
 
@@ -125,16 +133,23 @@ class ProfileViewController : UIViewController {
         guard let aboutLabel = aboutLabel else { return }
         aboutLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(aboutLabel)
-        aboutLabel.text = "About user"
-        aboutLabel.font = UIFont.systemFont(ofSize: 13)
-        aboutLabel.textColor = UIColor(named: "YP White (iOS)")
+        aboutLabel.text = ProfileConstants.AboutLabel.defaultName
+        aboutLabel.font = UIFont.systemFont(
+            ofSize: ProfileConstants.AboutLabel.fontSize)
+        aboutLabel.textColor = UIColor(
+            named: ProfileConstants.AboutLabel.textColorName)
+        aboutLabel.numberOfLines = ProfileConstants.AboutLabel.numberOfLines
         aboutLabel.leadingAnchor.constraint(
             equalTo: view.leadingAnchor,
-            constant: Constraints.leading)
+            constant: ProfileConstraints.Common.leading)
+                .isActive = true
+        aboutLabel.trailingAnchor.constraint(
+            equalTo: view.trailingAnchor,
+            constant: ProfileConstraints.Common.trailing)
                 .isActive = true
         aboutLabel.topAnchor.constraint(
             equalTo: nickNameLabel.bottomAnchor,
-            constant: Constraints.nameLabelTop)
+            constant: ProfileConstraints.AboutLabel.top)
                 .isActive = true
     }
 
